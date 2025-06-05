@@ -124,7 +124,7 @@ npm run test
 
 ## 🌐 Live Demo
 
-Deployed at: [https://your-deployment.vercel.app](https://your-deployment.vercel.app)
+Deployed at: [https://products-dashboard-xi.vercel.app/](https://products-dashboard-xi.vercel.app/)
 
 ---
 
@@ -148,9 +148,7 @@ Loom or screen recording: *[Link if available]*
 ## 📌 Future Improvements
 
 - Add pagination or infinite scroll
-- Persist favorites to localStorage
 - Add user login (OAuth or mock)
-- Improve accessibility with testing via axe-core
 
 ---
 
