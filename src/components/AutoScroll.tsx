@@ -7,7 +7,7 @@ const AutoScroll = () => {
   const allProducts = useAppSelector((state) => state.products.items);
   const products = useMemo(() => allProducts.slice(0, 10), [allProducts]);
 
-  const loopProducts = [...products];
+  const loopProducts = [...products, ...products];
 
   return (
     <div className="overflow-hidden relative bg-gray-50 py-8">
