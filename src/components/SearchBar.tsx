@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAppDispatch } from "../app/hooks";
 import { setSearchQuery } from "../features/filters/filtersSlice";
-import useDebounce from "../hooks/useDebounce";
+import useDebounce from "../utils/useDebounce";
 
 const SearchBar: React.FC = () => {
   const dispatch = useAppDispatch();
