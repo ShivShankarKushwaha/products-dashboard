@@ -11,6 +11,26 @@ import { Heart } from "lucide-react";
 import PageWrapper from "../components/PageWrapper";
 import { fetchProductById } from "../api";
 
+const useProductSEO = (product: Product | null) => {
+  useEffect(() => {
+    if (product) {
+      document.title = `${product.title} | Product Details`;
+      const metaDesc = document.querySelector("meta[name='description']");
+      if (metaDesc) {
+        metaDesc.setAttribute("content", product.description);
+      } else {
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        meta.content = product.description;
+        document.head.appendChild(meta);
+      }
+    }
+    return () => {
+      document.title = "Product Details";
+    };
+  }, [product]);
+};
+
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
@@ -37,6 +57,8 @@ const ProductDetails: React.FC = () => {
     }
   }, [id]);
 
+  useProductSEO(product);
+
   const toggleFavorite = () => {
     if (product) {
       if (isFavorite) {
@@ -51,34 +73,54 @@ const ProductDetails: React.FC = () => {
     return <Loader />;
   }
   if (!product) {
-    return <p className="text-red-500">Product not found.</p>;
+    return (
+      <p className="text-red-500" role="alert">
+        Product not found.
+      </p>
+    );
   }
 
   return (
     <PageWrapper>
-      <div className="p-4 max-w-4xl mx-auto">
+      <main className="p-4 max-w-4xl mx-auto" aria-labelledby="product-title">
         <div className="flex flex-col md:flex-row gap-6">
           <img
             src={product.image}
             alt={product.title}
             className="h-80 object-contain mx-auto md:w-1/2"
+            loading="lazy"
+            width={320}
+            height={320}
           />
           <div className="md:w-1/2">
-            <h2 className="text-2xl font-bold mb-2">{product.title}</h2>
+            <h1 id="product-title" className="text-2xl font-bold mb-2">
+              {product.title}
+            </h1>
             <p className="text-gray-600 mb-4">{product.description}</p>
             <p className="text-lg font-semibold text-blue-600 mb-4">
-              ${product.price}
+              <span aria-label="Price">${product.price}</span>
             </p>
             <button
               onClick={toggleFavorite}
               className="text-red-500 text-sm flex items-center gap-2 cursor-pointer hover:text-red-700 transition-colors duration-200"
+              aria-pressed={isFavorite}
+              aria-label={
+                isFavorite ? "Remove from favorites" : "Add to favorites"
+              }
+              type="button"
             >
-              {isFavorite ? <Heart fill="red" /> : <Heart />}
-              {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+              {isFavorite ? (
+                <Heart fill="red" aria-hidden="true" />
+              ) : (
+                <Heart aria-hidden="true" />
+              )}
+              <span>
+                {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+              </span>
             </button>
           </div>
         </div>
-      </div>
+      </main>
     </PageWrapper>
   );
 };
