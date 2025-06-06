@@ -26,10 +26,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": [
-    "src",
-    "tests/e2e/favorites.test.ts",
-    "tests/e2e/filters.test.ts",
-    "tests/e2e/products.test.ts"
-  ]
+  "include": ["src"]
 }

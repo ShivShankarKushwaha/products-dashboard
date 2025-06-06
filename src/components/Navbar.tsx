@@ -25,6 +25,7 @@ const Navbar = () => (
               className="text-gray-700 hover:text-blue-500"
               title="Home Page"
               aria-label="Home"
+              data-testid="nav-home"
             >
               Home
             </Link>
@@ -35,6 +36,7 @@ const Navbar = () => (
               className="text-gray-700 hover:text-blue-500"
               title="Favorites Page"
               aria-label="Favorites"
+              data-testid="nav-favorites"
             >
               Favorites
             </Link>

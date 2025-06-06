@@ -31,6 +31,7 @@ const SearchBar: React.FC = () => {
         autoComplete="off"
         role="searchbox"
         inputMode="search"
+        data-testid="search-input"
       />
     </div>
   );
