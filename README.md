@@ -139,6 +139,10 @@ npm run coverage
 
 ---
 
+## Code Coverage
+
+Code coverage reports are generated automatically and can be accessed at [./coverage/index.html](./coverage/index.html). This report provides detailed insights into which parts of the codebase are covered by tests, helping to identify untested areas and improve overall test quality. To view the latest coverage results, open the provided HTML file in your browser after running the test suite.
+
 ## 🌐 Live Demo
 
 Deployed at: [https://products-dashboard-xi.vercel.app/](https://products-dashboard-xi.vercel.app/)
@@ -156,11 +160,6 @@ Endpoints used:
 
 ---
 
-## 📽️ Optional Video Walkthrough
-
-Loom or screen recording: *[Link if available]*
-
----
 
 ## 📌 Future Improvements
 - Add pagination or infinite scroll
