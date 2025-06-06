@@ -9,18 +9,30 @@ const Favorites: React.FC = () => {
   return (
     <PageWrapper>
       <div className="p-4 max-w-6xl mx-auto">
-        <h2 className="text-xl font-bold mb-4">Your Favorites</h2>
+        <h1 className="text-xl font-bold mb-4" tabIndex={-1}>
+          Your Favorites
+        </h1>
 
         {favorites.length === 0 ? (
-          <p className="text-gray-500">No favorite products yet.</p>
+          <p className="text-gray-500" aria-live="polite">
+            No favorite products yet.
+          </p>
         ) : (
-          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <section
+            className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+            aria-label="Favorite products"
+          >
             {favorites.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
-          </div>
+          </section>
         )}
       </div>
+      <meta name="title" content="Your Favorite Products" />
+      <meta
+        name="description"
+        content="View your favorite products. Easily browse and manage your favorite items."
+      />
     </PageWrapper>
   );
 };

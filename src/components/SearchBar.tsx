@@ -22,11 +22,15 @@ const SearchBar: React.FC = () => {
       </label>
       <input
         id="search"
-        type="text"
+        type="search"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="eg. Monitor, shirt, Drive"
+        placeholder="e.g. Monitor, shirt, Drive"
         className="w-full md:w-80 px-4 py-2 rounded-lg border border-gray-300 focus:border-transparent focus:ring-2 focus:ring-blue-600 outline-none transition-all duration-200 text-gray-900 placeholder-gray-400 shadow focus:shadow-lg bg-white"
+        aria-label="Search products by title"
+        autoComplete="off"
+        role="searchbox"
+        inputMode="search"
       />
     </div>
   );

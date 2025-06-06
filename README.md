@@ -16,21 +16,19 @@ A modern, responsive, and accessible product dashboard built using **React**, **
 - ⚡ **Debounced search input** for optimized performance
 - 🌀 **Loading states** and graceful error handling
 - 🎨 **Responsive Design** using Tailwind CSS
+- ♿ **SEO & Accessibility** enhancements for better discoverability and usability
 
 ---
-
-## 🧰 Tech Stack
-
-| Technology         | Purpose                                |
-|--------------------|----------------------------------------|
-| **React**          | UI library for building SPA            |
-| **Redux Toolkit**  | Global state management                |
-| **React Router**   | Client-side routing                    |
-| **Tailwind CSS**   | Utility-first styling                  |
-| **Framer Motion**  | Animations (auto-scroll, dropdowns)    |
-| **Vitest / Jest**  | Unit + integration testing             |
-| **React Testing Library** | Component rendering & behavior testing |
-| **Vercel / Netlify** | Deployment                           |
+| Technology                    | Purpose                                |
+|-------------------------------|----------------------------------------|
+| **React**                     | UI library for building SPA            |
+| **Redux Toolkit**             | Global state management                |
+| **React Router**              | Client-side routing                    |
+| **Tailwind CSS**              | Utility-first styling                  |
+| **Framer Motion**             | Animations (auto-scroll, dropdowns)    |
+| **Vitest / Jest**             | Unit + integration testing             |
+| **React Testing Library**     | Component rendering & behavior testing |
+| **Vercel**                    | Deployment                             |
 
 ---
 
@@ -79,7 +77,20 @@ src/
 │
 └── tests/              # Unit and integration tests
 ```
+## 🗂️ Low-Level Architecture Diagram
 
+Below is a low-level diagram illustrating the core structure and data flow of the Product Dashboard frontend:
+
+![Low-Level Architecture Diagram](./public/LLD.png)
+
+**Diagram Overview:**
+- **API Layer:** Handles all HTTP requests to the Fake Store API.
+- **Redux Store:** Centralized state management for products, filters, and favorites.
+- **Components:** UI elements consume state via hooks and dispatch actions.
+- **Pages:** Compose components and connect to routes.
+- **Utilities:** Custom hooks (e.g., `useDebounce`) and helpers for logic reuse.
+
+> The diagram above is located at `docs/low-level-architecture.png`. Update the image if you modify the architecture.
 ---
 
 ## 🚀 Getting Started
@@ -108,8 +119,14 @@ npm run dev
 ### 4. Run Tests
 
 ```bash
-# Unit & integration tests
-npm run test
+# Unit testing
+npm run test:unit
+
+# integration testing
+npm run test:integration
+
+# coverage report generation
+npm run coverage
 ```
 
 ---
@@ -146,7 +163,8 @@ Loom or screen recording: *[Link if available]*
 ---
 
 ## 📌 Future Improvements
-
+- accesibility and seo work
+- unit and e2e testing
 - Add pagination or infinite scroll
 - Add user login (OAuth or mock)
 
