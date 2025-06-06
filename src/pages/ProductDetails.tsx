@@ -79,11 +79,17 @@ const ProductDetails: React.FC = () => {
       </p>
     );
   }
-
   return (
     <PageWrapper>
-      <main className="p-4 max-w-4xl mx-auto" aria-labelledby="product-title">
-        <div className="flex flex-col md:flex-row gap-6">
+      <main
+        className="p-4 max-w-4xl mx-auto"
+        aria-labelledby="product-title"
+        data-testid="product-details-main"
+      >
+        <div
+          className="flex flex-col md:flex-row gap-6"
+          data-testid="product-details-container"
+        >
           <img
             src={product.image}
             alt={product.title}
@@ -91,13 +97,23 @@ const ProductDetails: React.FC = () => {
             loading="lazy"
             width={320}
             height={320}
+            data-testid="product-image"
           />
-          <div className="md:w-1/2">
-            <h1 id="product-title" className="text-2xl font-bold mb-2">
+          <div className="md:w-1/2" data-testid="product-info">
+            <h1
+              id="product-title"
+              className="text-2xl font-bold mb-2"
+              data-testid="product-title"
+            >
               {product.title}
             </h1>
-            <p className="text-gray-600 mb-4">{product.description}</p>
-            <p className="text-lg font-semibold text-blue-600 mb-4">
+            <p className="text-gray-600 mb-4" data-testid="product-description">
+              {product.description}
+            </p>
+            <p
+              className="text-lg font-semibold text-blue-600 mb-4"
+              data-testid="product-price"
+            >
               <span aria-label="Price">${product.price}</span>
             </p>
             <button
@@ -108,11 +124,16 @@ const ProductDetails: React.FC = () => {
                 isFavorite ? "Remove from favorites" : "Add to favorites"
               }
               type="button"
+              data-testid="favorite-toggle"
             >
               {isFavorite ? (
-                <Heart fill="red" aria-hidden="true" />
+                <Heart
+                  fill="red"
+                  aria-hidden="true"
+                  data-testid="heart-filled"
+                />
               ) : (
-                <Heart aria-hidden="true" />
+                <Heart aria-hidden="true" data-testid="heart-outline" />
               )}
               <span>
                 {isFavorite ? "Remove from Favorites" : "Add to Favorites"}

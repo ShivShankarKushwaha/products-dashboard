@@ -163,8 +163,6 @@ Loom or screen recording: *[Link if available]*
 ---
 
 ## 📌 Future Improvements
-- accesibility and seo work
-- unit and e2e testing
 - Add pagination or infinite scroll
 - Add user login (OAuth or mock)
 

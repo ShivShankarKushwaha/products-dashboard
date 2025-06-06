@@ -64,6 +64,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       animate="rest"
       className="group shadow-inner shadow-slate-400/70 rounded-xl shadow-sm p-4 bg-white hover:shadow-inner transition duration-200 relative overflow-hidden"
       aria-label={`Product card for ${product.title}`}
+      data-testid={"product-" + product.id}
+      role="article"
     >
       <Link
         to={`/product/${product.id}`}
@@ -107,6 +109,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
         aria-pressed={isFavorite}
         type="button"
+        data-testid={`favorite-button-${product.id}`}
         tabIndex={0}
       >
         {isFavorite ? (
@@ -115,12 +118,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             fill="red"
             aria-hidden="true"
             focusable="false"
+            data-testid={`favorite-icon-${product.id}`}
           />
         ) : (
           <Heart
             className="w-5 h-5 inline"
             aria-hidden="true"
             focusable="false"
+            data-testid={`not-favorite-icon-${product.id}`}
           />
         )}
       </motion.button>

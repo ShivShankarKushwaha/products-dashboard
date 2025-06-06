@@ -85,6 +85,7 @@ const SortDropdown: React.FC = () => {
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-labelledby="sort-label sort-dropdown"
+        data-testid="sort-dropdown-button"
         onClick={() => setOpen((prev) => !prev)}
       >
         <span>{selectedLabel}</span>
@@ -115,6 +116,7 @@ const SortDropdown: React.FC = () => {
                 aria-selected={sortOrder === opt.value}
                 tabIndex={0}
                 onClick={() => handleSelect(opt.value)}
+                data-testid={`sort-option-${opt.value}`}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     handleSelect(opt.value);

@@ -116,6 +116,7 @@ const CategoryFilter: React.FC = () => {
             transition={{ duration: 0.2 }}
             role="listbox"
             aria-labelledby="category-filter-label"
+            data-testid="category-list"
             tabIndex={-1}
           >
             <li
@@ -143,6 +144,7 @@ const CategoryFilter: React.FC = () => {
                 aria-selected={selectedCategory === cat}
                 tabIndex={0}
                 onClick={() => handleSelect(cat)}
+                data-testid={"category-" + cat.toLowerCase()}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     handleSelect(cat);
